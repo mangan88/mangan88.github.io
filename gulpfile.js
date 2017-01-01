@@ -10,7 +10,7 @@ var livereload = require('gulp-livereload');
 livereload({start: true});
 
 gulp.task('workflow', function () {
-	gulp.src('./src/sass/**/*.scss')
+	gulp.src(['./src/sass/**/*.scss', './dist/fa/scss/*.scss'])
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({
@@ -30,5 +30,5 @@ gulp.task('reload', function() {
 });
 
 gulp.task('default', function () {
-	gulp.watch(['./src/sass/**/*.scss', './index.html'], ['workflow', 'reload']);
+	gulp.watch(['./src/sass/**/*.scss', './dist/fa/scss/*.scss', './index.html'], ['workflow', 'reload']);
 });
